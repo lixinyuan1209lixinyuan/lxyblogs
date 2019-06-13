@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>关于我 —  一个站在java开发之路上的草根程序员个人博客网站</title>
+<base href="http://localhost/blogs/lxyblog/public/index/template/">
+<base href="http://localhost/blogs/lxyblog/public/admin/">
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="keywords" content="个人博客,王风宇个人博客,个人博客系统,老王博客,王风宇">
+<meta name="description" content="Lao王博客系统，一个站在java开发之路上的草根程序员个人博客网站。">
+<LINK rel="Bookmark" href="favicon.ico" >
+<LINK rel="Shortcut Icon" href="favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/staticRes/js/html5shiv.js"></script>
+<script type="text/javascript" src="/staticRes/js/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="plugin/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="plugin/Hui-iconfont/1.0.8/iconfont.min.css" />
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="plugin/pifu/pifu.css" />
+<!--[if lt IE 9]>
+<link href="/staticRes/lib/h-ui/css/H-ui.ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } function showSide(){$('.navbar-nav').toggle();}</script>
+</head>
+<body>
+{include file='public/header'}
+<!--导航条-->
+<nav class="breadcrumb">
+    <div class="container"> <i class="Hui-iconfont">&#xe67f;</i> <a href="/" class="c-primary">首页</a> <span class="c-gray en">&gt;</span>  <span class="c-gray">关于</span> </div>
+</nav>
+
+<section class="container">
+    <div class="container-fluid">
+       
+        <h1> 
+            <a title="查看或修改个人信息" data-toggle="modal" data-target="#seeUserInfo">个人信息</a>
+            <a href="{:url('personal/show')}">我要写博文</a>
+        </h1>
+        <div class="about">
+            <h2>我的收藏</h2>
+            <ul>
+                {foreach $collect as $v}
+                    <p>标题：{$v.title}</p>
+                    <p>文章链接： <a href="http://localhost/blogs/lxyblog/public/index/detailpages/index.html?title_id={$v.title_id}">http://localhost/blogs/lxyblog/public/index/detailpages/index.html?title_id={$v.title_id}</a> </p>
+                    <p>文章被收藏数：<?php echo count($sum)?></p>
+                    <hr>
+                {/foreach}
+            </ul>
+            <h2>我的评论 -- 数量：<?php echo count($comment)?></h2>
+            <ul>
+                {foreach $comment as $v}
+                <p><a href="http://localhost/blogs/lxyblog/public/index/detailpages/index.html?title_id={$v.title_id}">{$v.title}</a></p>
+                {/foreach}
+                
+            </ul>
+            <h2>我的评论 -- 粉丝：<?php echo count($comment)?></h2>
+            <ul>
+                {foreach $comment as $v}
+                <p><a href="http://localhost/blogs/lxyblog/public/index/detailpages/index.html?title_id={$v.title_id}">{$v.title}</a></p>
+                {/foreach}
+                
+            </ul>
+            <h2>关注的博主 -- <?php echo count($bloger)?></h2>
+            <ul>
+                {foreach $bloger as $v}
+                <p style="font-size: 25px;">姓名:<a href="{:url('title/index')}?id={$v.admin_id}">{$v.name}</a></p>
+                {/foreach}
+                
+            </ul>
+        </div>
+
+    </div>
+    <div class="modal fade" id="seeUserInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <form action="{:url('personal/add')}" method="post">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" >个人信息</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table" style="margin-bottom:0px;">
+            <thead>
+              <tr> </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td wdith="20%">姓名:</td>
+                <td width="80%"><input type="text" value="<?php echo $info['name']?>" class="form-control" name="name" maxlength="10" autocomplete="off" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">注册邮箱:</td>
+                <td width="80%"><input type="text" value="<?php echo $info['email']?>" class="form-control" name="email"  autocomplete="on" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">手机号:</td>
+                <td width="80%"><input type="text" value="<?php echo $info['phone']?>" class="form-control" name="phone" maxlength="13" autocomplete="off" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">登录名称:</td>
+                <td width="80%"><input type="password" class="form-control" value="<?php echo $info['name']?>" name="name" maxlength="18" autocomplete="off" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">新密码:</td>
+                <td width="80%"><input type="password" class="form-control" name="password" maxlength="18" autocomplete="off" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">确认密码:</td>
+                <td width="80%"><input type="password" class="form-control"maxlength="18" autocomplete="off" /></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr></tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">提交</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</section>
+<footer class="footer mt-20">
+    <div class="container-fluid" id="foot">
+        <p>Copyright &copy; 2016-2017 www.wfyvv.com <br>
+            <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备17002922号</a><br>
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="plugin/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="plugin/layer/3.0/layer.js"></script>
+<script type="text/javascript" src="plugin/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="plugin/pifu/pifu.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script> $(function(){ $(window).on("scroll",backToTopFun); backToTopFun(); }); </script>
+</body>
+</html>

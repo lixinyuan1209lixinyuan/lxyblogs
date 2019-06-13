@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>李新元的垃圾博客</title>
+<base href="http://localhost/blogs/lxyblog/public/index/template/">
+
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="keywords" content="个人博客,王风宇个人博客,个人博客系统,老王博客,王风宇">
+<meta name="description" content="Lao王博客系统，一个站在java开发之路上的草根程序员个人博客网站。">
+<LINK rel="Bookmark" href="favicon.ico" >
+<LINK rel="Shortcut Icon" href="favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/staticRes/js/html5shiv.js"></script>
+<script type="text/javascript" src="/staticRes/js/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="plugin/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="plugin/Hui-iconfont/1.0.8/iconfont.min.css" />
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="plugin/pifu/pifu.css" />
+<link rel="stylesheet" type="text/css" href="plugin/wangEditor/css/wangEditor.min.css">
+<!--[if lt IE 9] >
+<link href="/staticRes/lib/h-ui/css/H-ui.ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } function showSide(){$('.navbar-nav').toggle();}</script>
+</head>
+<style>
+    .click{
+        margin-left: 350px;
+        width: 100px;
+        height: 40px;
+        color: /*green*/;
+        background: orange;
+        font-size: 25px;
+    }
+    .click:hover{
+        color: red;
+    }
+</style>
+<body>
+{include file='public/header'}
+<!--导航条-->
+<nav class="breadcrumb">
+  <div class="container"> <i class="Hui-iconfont">&#xe67f;</i> <a href="/" class="c-primary">首页</a> <span class="c-gray en">&gt;</span>  <span class="c-gray">文章</span> <span class="c-gray en">&gt;</span>  <span class="c-gray">个人博客应该选择什么样的域名和域名后缀</span></div>
+</nav>
+<section class="container pt-20">
+	<div class="row w_main_row">
+				<div class="col-lg-9 col-md-9 w_main_left">
+					<div class="panel panel-default  mb-20">
+						<div class="panel-body pt-10 pb-10">
+                            {foreach $title as $v}
+							<h2 class="c_titile">我的个人博客之——{$v.title}</h2>
+							<p class="box_c"><button class="collect" value='{$v.title_id}'>点击收藏</button><span class="d_time">发布时间：{$v.time|date='Y-m-d'}</span><span>编辑：<a href="mailto:wfyv@qq.com">{$v.name}</a></span><span>阅读（{$v.comment}）</span><button class="concem" value='{$v.title_id}'>点击关注</button></p>
+							<ul class="infos">
+								<p>&nbsp;<img src="http://localhost/{$v.titlepic}" alt="个人博客阿里云空间选择" width="900" height="400"></p>
+								<p>{$v.content|raw}</p>
+								
+							</ul>
+                            <button class="click" value="{$v.title_id}">点赞</button>
+                            <button class="sum" value="{$v.visibility}">{$v.visibility}</button>
+                            
+							{/foreach}								
+						</div>
+					</div>
+					
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a></div>
+                        <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "32" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=0.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+					<div class="panel panel-default  mb-20">
+						<div class="tab-category">
+                <a href=""><strong>评论区</strong></a>
+            </div>
+						<div class="panel-body">
+							<div class="panel-body" style="margin: 0 3%;">
+                    <div class="mb-20">
+                    	<ul class="commentList">
+                           
+                                        {foreach $comment as $v}
+                            <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="http://qzapp.qlogo.cn/qzapp/101388738/696C8A17B3383B88804BA92ECBAA5D81/100"></i></a>
+                                <div class="comment-main">
+                                    <header class="comment-header">
+                                        <div class="comment-meta"><a class="comment-author" href="#">{$v.name}</a>
+                                            <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20" class="f-r">{$v.time|date='Y-m-d'}</time>
+                                        </div>
+                                    </header>
+                                    <div class="comment-body">
+                                        <p> {$v.comment|raw}</p>
+                                    </div>
+                                </div>
+                            </li>
+                                {/foreach}
+
+                        </ul>
+    
+                    </div>
+                    <div class="line"></div>
+                    <!--用于评论-->
+                    
+                    <div class="mt-20" id="ct">
+                        <textarea id="textarea1" class="textarae" name="comment" style="height:200px;"> </textarea>
+                        <div class="text-r mt-10">
+                            <button class="btn btn-primary radius comment" id="" type="submit"> 发表评论</button>
+                        </div>
+                    </div>
+                   
+                    <!--用于回复-->
+                    <div class="comment hidden mt-20">
+                        <div id="err2" class="Huialert Huialert-danger hidden radius">33</div>
+                            <textarea class="textarea" style="height:100px;" > </textarea>
+                            <button onclick="hf(this);" type="button" class="btn btn-primary radius mt-10">回复</button>
+                            <a class="cancelReply f-r mt-10">取消回复</a>
+                    </div>
+
+                </div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3">
+					<!--热门推荐-->
+  	<div class="bg-fff box-shadow radius mb-20">
+			<div class="tab-category">
+				<a href=""><strong>热门推荐</strong></a>
+			</div>
+			<div class="tab-category-item">
+				<ul class="index_recd">
+                    {foreach $hot as $v}
+					<li>
+						<a href="{:url('detailpages/index')}?title_id={$v.title_id}">{$v.title}</a>
+						<p class="hits"><i class="Hui-iconfont" title="点击量">&#xe622;</i> {$v.comment} </p>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+		</div>
+        <div class="bg-fff box-shadow radius mb-20">
+            <div class="tab-category">
+                <a href=""><strong>博主信息</strong></a>
+                
+            </div>
+
+            <div class="tab-category-item">
+                <ul class="index_recd">
+                    {foreach $bloger as $v}
+                    <li class="index_recd_item">姓    名：{$v.name}</li>
+                    <li class="index_recd_item">开通时间：{$v.register_time|date='Y-m-d'}</li>
+                    <li class="index_recd_item">文章被关注数：<?php echo count($bloger_comment)?></li>
+                    <li class="index_recd_item">粉    丝：<?php echo count($etc)?></li>
+                    <hr>
+                    <input type="hidden" class="bl" value="{$v.admin_id}">
+                    {/foreach}
+                    <li class="index_recd_item"><button class="bloger">关注博主</button></li>
+                </ul>
+            </div>
+        </div>
+				</div>
+			</div>
+	
+</section>
+<footer class="footer mt-20">
+		<p>Copyright &copy;2017 wfyvv.com All Rights Reserved. <br>
+			<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">皖ICP备17002922号</a><br>
+		</p>
+</footer>
+<script type="text/javascript" src="plugin/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="plugin/layer/3.0/layer.js"></script>
+<script type="text/javascript" src="plugin/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="plugin/pifu/pifu.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script> $(function(){ $(window).on("scroll",backToTopFun); backToTopFun(); }); </script>
+<script type="text/javascript" src="plugin/wangEditor/js/wangEditor.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+    		$("img.lazyload").lazyload({failurelimit : 3});
+    	
+        wangEditor.config.printLog = false;
+        var editor1 = new wangEditor('textarea1');
+        editor1.config.menus = ['insertcode', 'quote', 'bold', '|', 'img', 'emotion', '|', 'undo', 'fullscreen'];
+        editor1.config.emotions = { 'default': { title: '表情', data: 'plugin/wangEditor/emotions1.data'}, 'default2': { title: ' 心情', data: 'plugin/wangEditor/emotions3.data'}, 'default3': { title: '顶一顶', data: 'plugin/wangEditor/emotions2.data'}};
+        editor1.create();
+
+        //show reply
+        $(".hf").click(function () {
+            pId = $(this).attr("name");
+            $(this).parents(".commentList").find(".cancelReply").trigger("click");
+            $(this).parent(".comment-body").append($(".comment").clone(true));
+            $(this).parent(".comment-body").find(".comment").removeClass("hidden");
+            $(this).hide();
+        });
+        //cancel reply
+        $(".cancelReply").on('click',function () {
+            $(this).parents(".comment-body").find(".hf").show();
+            $(this).parents(".comment-body").find(".comment").remove();
+        });
+    });
+
+</script>
+</body>
+</html>
+<script></script> src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $('.click').click(function(){
+        var title_id = $(this).val();
+        
+        // alert(sum);return false;
+        $.ajax({
+            url:'{:url("detailpages/click")}',
+            data:{title_id:title_id},
+            success:function(res){
+                // alert(res);return
+                if(res==1){
+                    alert('您以为此文章点过赞');
+                }else{
+                    alert('点赞成功');
+                    var sum =$('.sum').text();
+                    $('.sum').text(parseInt(sum)+1);
+                }
+            }
+        })
+    })
+    $('.concem').click(function(){
+        var title_id = $(this).val();
+        $.ajax({
+            url:'{:url("detailpages/concem")}',
+            data:{title_id:title_id},
+            success:function(res){
+                alert(res);
+                history.go(0);
+            }
+        })
+    })
+    $('.comment').click(function(){
+        // alert(3 )
+        var title_id = $('.concem').val();
+        var comment = $('#textarea1').val();
+        $.ajax({
+            url:'{:url("detailpages/comment")}',
+            data:{title_id:title_id,comment:comment},
+            type:'post',
+            success:function(res){
+                if(res==1){
+                    alert('评论成功');
+                    history.go(0);
+                }else if(res==0){
+                    alert('还没有填写评论')
+                }else if(res==3){
+                    alert('您还还有登录')
+                }else{
+                    alert('评论失败');
+                }
+            }
+        })
+    })
+    
+   $('.bloger').click(function(){
+        var bloger = $('.bl').val();
+        $.ajax({
+            url:"{:url('detailpages/bloger')}",
+            data:{bloger:bloger},
+            success:function(res){
+                if(res==1){
+                    alert('关注成功');
+                    history.go(0)
+                }else if(res==0){
+                    alert('您已关注过次博主');
+                }
+            }
+        })
+   })
+   $('.collect').click(function(){
+        var title_id = $(this).val();
+        $.ajax({
+            url:'{:url("detailpages/collect")}',
+            data:{title_id:title_id},
+            success:function(res){
+                if(res==1){
+                    alert('收藏成功');
+                    history.go(0)
+                }else if(res==0){
+                    alert('您已收藏过次文章');
+                }
+            }
+        })
+   })
+   $(".unset").click(function(){
+
+        var res = confirm("你去确定要退出吗？");
+        if(res==true){
+            $.ajax({
+                url:"{:url('login/unset')}",
+                success:function(res){
+                    location.reload();
+                    return true;
+                }
+            })
+          
+        }
+        if(res==false){
+            return false;
+        }
+    })
+</script>
